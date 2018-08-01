@@ -54,6 +54,10 @@ final class FHTTPS_Core {
 	 */
 	private function __construct() {
 
+		if ( php_sapi_name() === 'cli' ) {
+			return;
+		}
+
 		// Check SSL status
 		$this->checkSSLRedirect();
 
